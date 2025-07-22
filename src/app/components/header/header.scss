@@ -1,0 +1,55 @@
+$primary-font-color: #e5e5e5;
+
+.header-container {
+    padding: 18px 4%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.4s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sticky-header {
+    background-color: #141414; 
+}
+
+.header-group-left, .header-group-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 25px;
+}
+
+.main-nav a {
+    color: $primary-font-color;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin: 0 10px;
+
+    &:hover {
+        color: #b3b3b3;
+    }
+}
+
+.profile-avatar {
+    height: 32px;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+  }
+
+  .logo {
+    height: 20px;
+  }
+}

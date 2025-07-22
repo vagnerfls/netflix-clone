@@ -1,0 +1,18 @@
+<div class="row-container">
+    <h2 class="row-title">{{ title }}</h2>
+    
+    <div class="row-carousel">
+        <button class="scroll-arrow left-arrow" (click)="scrollLeft()">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="scroll-arrow right-arrow" (click)="scrollRight()">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+    
+    <div class="row-posters" #posterContainer>
+        <div class="poster" *ngFor="let movie of movies">
+            <img [src]="movie.poster_path | image" [alt]="movie.title">
+        </div>
+    </div>
+</div>
