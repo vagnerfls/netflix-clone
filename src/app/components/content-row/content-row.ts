@@ -1,12 +1,13 @@
 import { Component, Input, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Movie } from '../../interfaces/movie';
 import { ImagePipe } from '../../pipes/image-pipe';
 
 @Component({
   selector: 'app-content-row',
   standalone: true,
-  imports: [CommonModule, ImagePipe],
+  imports: [CommonModule, ImagePipe, RouterModule],
   templateUrl: './content-row.html',
   styleUrl: './content-row.scss'
 })

@@ -12,7 +12,9 @@
     
     <div class="row-posters" #posterContainer>
         <div class="poster" *ngFor="let movie of movies">
-            <img [src]="movie.poster_path | image" [alt]="movie.title">
+            <a [routerLink]="['/filme', movie.id]">
+                <img [src]="movie.poster_path | image" [alt]="movie.title">
+            </a>
         </div>
     </div>
 </div>
