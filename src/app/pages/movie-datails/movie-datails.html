@@ -1,2 +1,22 @@
-<h1>Página de Detalhes</h1>
-<p *ngIf="movieId">O ID do filme que você selecionou é: {{ movieId }}</p>
+<div *ngIf="movieDetails"
+    class="details-banner-container"
+    [style.background-image]="'url(' + (movieDetails.backdrop_path | image) + ')'">
+
+    <div class="details-banner-content">
+        <h1 class="details-banner-title">{{ movieDetails.title }}</h1>
+        <p class="details-banner-description">{{ movieDetails.overview }}</p>
+        <div class="details-banner-buttons">
+            <button class="btn btn-play">
+                <i class="fa-solid fa-play"></i>
+                Assistir Trailer
+            </button>
+            <a routerLink="/" class="btn btn-info">
+                <i class="fa-solid fa-arrow-left"></i>
+                Voltar
+            </a>
+        </div>
+    </div>
+
+    <div class="details-banner-fade-bottom"></div>
+
+</div>

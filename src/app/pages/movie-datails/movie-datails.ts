@@ -1,22 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MovieService } from '../../services/movie';
+import { ImagePipe } from '../../pipes/image-pipe';
 
 @Component({
   selector: 'app-movie-datails',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, ImagePipe],
   templateUrl: './movie-datails.html',
   styleUrl: './movie-datails.scss'
 })
 
 export class MovieDatailsComponent implements OnInit {
+  
+  movieDetails: any;
+  constructor(
+    private route: ActivatedRoute,
+    private movieService: MovieService
+  ) {}
 
-  movieId: string | null = null;
-  constructor(private route: ActivatedRoute) {}
   ngOnInit(): void {
-    this.movieId = this.route.snapshot.paramMap.get('id');
-    console.log('ID do filme selecionado:', this.movieId);
+    const movieId = this.route.snapshot.paramMap.get('id');
+
+    if (movieId){
+      this.movieService.getMovieDetails(movieId).subscribe(details => {
+        this.movieDetails = details;
+        console.log('ID do filme selecionado:', this.movieDetails);
+      });
+    }
+    
   }
 
 }

@@ -24,4 +24,8 @@ export class MovieService {
   getTopRatedMovies(): Observable<any> {
     return this.http.get(`${this.baseUrl}/movie/top_rated?api_key=${this.apiKey}&language=pt-BR`);
   }
+
+  getMovieDetails(id: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/movie/${id}?api_key=${this.apiKey}&language=pt-BR`);
+  }
 }
